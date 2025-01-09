@@ -1,0 +1,68 @@
+/* resets START */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+/* resets END */
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    height: 100vh;
+}
+.card > *:not(.hover-me) {
+    opacity: 0;
+    visibility: hidden;
+}
+.card {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    text-align: center;
+    pointer-events: none;
+    position: relative;
+    background-color: rgba(0,0,0, .5);
+    border-radius: 10px;
+}
+.card > .title {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+.card > p {
+    margin-bottom: 10px;
+}
+.card > a {
+    display: block;
+    text-align: end;
+}
+.card h2, .card p, .card a {
+    transition-duration: .5s;
+    transition-delay: .2s;
+}
+.hover-me {
+    width: 30px;
+    height: 30px;
+    background-color: #8f3f3f;
+    border-radius: 50%;
+    pointer-events: all;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+.card .title, .card > p, .card > a {
+    pointer-events: all;
+} 
+.card:hover > * {
+    opacity: 1;
+    visibility: visible;
+}
+
