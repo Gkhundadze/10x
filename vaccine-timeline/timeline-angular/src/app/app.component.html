@@ -1,0 +1,31 @@
+<main>
+
+    <!-- <h1>{{ title }}</h1> -->
+    <section class="timeline-wrapper">
+     <div class="line">
+      <article *ngFor="let item of timelineItems" class="timeline-item">
+        <div class="card-header">
+          <h2>{{ item.title }}</h2>
+        <div class="header-content-holder">
+          <div class="date-wrapper">
+            <span class="date">{{ item.date }}</span>
+            <span>წელი</span>
+          </div>
+          <p>{{ item.description }}</p>
+        </div>
+        <a class="read-more" href="#">ვრცლად</a>
+        </div>
+        <div class="card-body">
+          <div class="type-img-holder">
+            <img src="{{item.selectionImage}}" alt="{{ item.type }} image">
+          </div>
+          <img src="{{item.virusImage}}" alt="{{item.title}} image">
+        </div>
+        
+        <div class="vertical-line"></div>
+      </article>
+     </div>
+    </section>
+
+</main>
+<!-- timelineItemsLength -->
