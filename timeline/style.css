@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+    font-family: 'FiraGO';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/firago@latest/latin-400-normal.woff) format('woff');
+  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+button {
+    background: none;
+    border: none;
+}
+/* project vars */
+:root {
+    --color-danger: #D74E12;
+    --color-success: #659F7C;
+    --color-descriptoin: #616161;
+}
+/* project vars */
+body {
+    font-family: 'FiraGO';
+    font-weight: 700;
+}
+section.timeline {
+    padding-top: 300px;
+}
+.section-header {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-title {
+    font-size: 68px;
+    line-height: 78px;
+    font-family: "Bebas Neue", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.tab-navigation {
+    
+}
+.tab-navigation ul {
+    display: flex;
+    gap: 80px;
+}
+.tab-navigation button.active {
+    color: var(--color-danger);
+}
+.tab-navigation button {
+    color: var(--color-success);
+    font-size: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.timeline-wrapper {
+    height: 800px;
+    display: flex;
+    align-items: center;
+    padding-block: 100px;
+}
+.line {
+    display: flex;
+    gap: 100px;
+    height: 4px;
+    background-color: var(--color-danger);
+    padding-inline: 200px;
+}
+.card-wrapper {
+    height: -webkit-fit-content;
+    position: relative;
+    bottom: -155px;
+    transform: translateY(-100%);
+    transition: opacity .3s ease-in-out;
+}
+.card-wrapper > *:not(.type-img-wrapper), .card-wrapper .vertical-line {
+    transition-duration: .3s;
+    opacity: .2;
+}
+.card-wrapper:hover > *{
+    opacity: 1;
+}
+.card-wrapper:hover .virus-image{
+    border: 1px solid var(--color-danger);
+}
+.card-wrapper:hover .vertical-line{
+    opacity: 1;
+}
+/* REVERSED items START */
+.card-wrapper.reversed {
+    transform: rotate(180deg) translateY(65%) scaleX(-1);
+}
+.card-wrapper.reversed h2 {
+    transform: rotate(180deg) scaleX(-1);
+    color: var(--color-danger);
+}
+.card-wrapper.reversed .date-and-description {
+    transform: rotate(180deg) scaleX(-1);
+    align-items: flex-end;
+}
+.card-wrapper.reversed .type-img-wrapper img {
+    transform: rotate(180deg);
+}
+/* REVERSED items END */
+
+.text-content-wrapper {
+    margin-bottom: 41px;
+}
+.card-title {
+    color: var(--color-success);
+    font-size: 45px;
+    line-height: 45px;
+    margin-bottom: 41px;
+    font-family: "Bebas Neue", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+}
+.date-and-description {
+    display: flex;
+    gap: 52px;
+}
+.date-wrapper {
+}
+.date-wrapper span{
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+}
+.date {
+    font-size: 36px;
+    line-height: 43px;
+}
+.description-wrapper {
+}
+.description {
+    width: 194px;
+    max-height: 123px;
+    overflow-y: auto;
+    color: var(--color-descriptoin);
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 6px;
+}
+.read-more {
+    font-size: 16px;
+    line-height: 17px;
+    font-family: "Bebas Neue", serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+}
+.type-img-wrapper {
+    position: relative;
+    margin-left: 26px;
+    margin-right: 172px;
+    width: 86px;
+    height: 86px;
+    background-color: #fff;
+    border: 1px solid var(--color-danger);
+    border-radius: 50%;
+    align-content: center;
+    cursor: pointer;
+}
+.vertical-line {
+    position: absolute;
+    top: -189px;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 330px;
+    background-color: var(--color-success);
+}
+.vertical-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    background-color: var(--color-success);
+    border-radius: 50%;
+}
+.type-img-wrapper img {
+    width: 39px;
+    height: 47px;
+    display: block;
+    margin-inline: auto;
+}
+.virus-image-wrapper {
+    position: relative;
+    margin-left: 112px;
+    margin-right: 60px;
+    width: 112px;
+    height: 112px;
+}
+.virus-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -43px;
+    z-index: -1;
+    transform: translateY(-50%);
+    height: 1px;
+    width: 44px;
+    background-color: var(--color-success);
+}
+.virus-image {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+}
