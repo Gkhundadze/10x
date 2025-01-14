@@ -1,9 +1,14 @@
+// wrapper containere (line)
 const wrapper = document.querySelector('.line')
+// child button
 const childTrigger = document.querySelector('#child')
+// female button
 const femaleTrigger = document.querySelector('#female')
+// male buttton
 const maleTrigger = document.querySelector('#male')
 
 
+// content for child 10 pcs
 const childContent = ` 
                 <article class="card-wrapper">
                     <div class="text-content-wrapper">
@@ -316,6 +321,7 @@ const childContent = `
                     </div>
                 </article>
 `
+// content for female 9 pcs
 const femaleContent = ` 
                 <article class="card-wrapper">
                     <div class="text-content-wrapper">
@@ -597,6 +603,7 @@ const femaleContent = `
                     </div>
                 </article>
 `
+// content for male 7 pcs
 const maleContent = ` 
                 <article class="card-wrapper">
                     <div class="text-content-wrapper">
@@ -820,18 +827,23 @@ const maleContent = `
 // initial load data (child content)
 wrapper.innerHTML = childContent
 
+// case when child button clicked
 childTrigger.addEventListener('click', () => {
     childTrigger.classList.add('active')
     femaleTrigger.classList.remove('active')
     maleTrigger.classList.remove('active')
     wrapper.innerHTML = childContent
 })
+
+// case when female button clicked
 femaleTrigger.addEventListener('click', () => {
     childTrigger.classList.remove('active')
     femaleTrigger.classList.add('active')
     maleTrigger.classList.remove('active')
     wrapper.innerHTML = femaleContent
 })
+
+// case when male button clicked
 maleTrigger.addEventListener('click', () => {
     childTrigger.classList.remove('active')
     femaleTrigger.classList.remove('active')
