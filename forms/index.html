@@ -7,7 +7,7 @@
     <title>HTML Forms</title>
 </head>
 <body>
-    <div class="form-wrapper">
+    <form class="form-wrapper">
         <h1>input form</h1>
         <label for="nameInput">full name</label>
         <div class="fullname-wrapper">
@@ -16,22 +16,24 @@
         </div>
         <div class="location-wrapper">
             <label for="location">location</label>
-            <select name="location" id="location">
-                <option value="New York, United States">New York, United States</option>
-                <option selected value="Batumi, Georgia">Batumi, Georgia</option>
-                <option value="Tbilisi, georgia">Tbilisi, georgia</option>
-            </select>
-            <span class="location-icon">
-                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.2714 11.1047L9.44275 13.9333C9.31905 14.0571 9.17215 14.1554 9.01046 14.2224C8.84877 14.2894 8.67545 14.3239 8.50042 14.3239C8.32539 14.3239 8.15207 14.2894 7.99038 14.2224C7.82869 14.1554 7.68179 14.0571 7.55808 13.9333L4.72875 11.1047C3.9829 10.3588 3.47497 9.40845 3.26921 8.3739C3.06344 7.33934 3.16908 6.267 3.57275 5.29247C3.97643 4.31795 4.66002 3.48501 5.53707 2.89899C6.41413 2.31297 7.44526 2.00018 8.50008 2.00018C9.55491 2.00018 10.586 2.31297 11.4631 2.89899C12.3402 3.48501 13.0237 4.31795 13.4274 5.29247C13.8311 6.267 13.9367 7.33934 13.731 8.3739C13.5252 9.40845 13.0173 10.3588 12.2714 11.1047V11.1047Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9.91421 8.74753C10.2893 8.37245 10.5 7.86375 10.5 7.33331C10.5 6.80288 10.2893 6.29417 9.91421 5.9191C9.53914 5.54403 9.03043 5.33331 8.5 5.33331C7.96957 5.33331 7.46086 5.54403 7.08579 5.9191C6.71071 6.29417 6.5 6.80288 6.5 7.33331C6.5 7.86375 6.71071 8.37245 7.08579 8.74753C7.46086 9.1226 7.96957 9.33331 8.5 9.33331C9.03043 9.33331 9.53914 9.1226 9.91421 8.74753Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                
-            </span>
-            <span class="arrow-down-icon">
-                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.1666 6L8.49992 10.6667L3.83325 6" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
+            <div class="location-holder">
+                <select name="location" id="location">
+                    <option value="New York, United States">New York, United States</option>
+                    <option selected value="Batumi, Georgia">Batumi, Georgia</option>
+                    <option value="Tbilisi, georgia">Tbilisi, georgia</option>
+                </select>
+                <span class="location-icon">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.2714 11.1047L9.44275 13.9333C9.31905 14.0571 9.17215 14.1554 9.01046 14.2224C8.84877 14.2894 8.67545 14.3239 8.50042 14.3239C8.32539 14.3239 8.15207 14.2894 7.99038 14.2224C7.82869 14.1554 7.68179 14.0571 7.55808 13.9333L4.72875 11.1047C3.9829 10.3588 3.47497 9.40845 3.26921 8.3739C3.06344 7.33934 3.16908 6.267 3.57275 5.29247C3.97643 4.31795 4.66002 3.48501 5.53707 2.89899C6.41413 2.31297 7.44526 2.00018 8.50008 2.00018C9.55491 2.00018 10.586 2.31297 11.4631 2.89899C12.3402 3.48501 13.0237 4.31795 13.4274 5.29247C13.8311 6.267 13.9367 7.33934 13.731 8.3739C13.5252 9.40845 13.0173 10.3588 12.2714 11.1047V11.1047Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.91421 8.74753C10.2893 8.37245 10.5 7.86375 10.5 7.33331C10.5 6.80288 10.2893 6.29417 9.91421 5.9191C9.53914 5.54403 9.03043 5.33331 8.5 5.33331C7.96957 5.33331 7.46086 5.54403 7.08579 5.9191C6.71071 6.29417 6.5 6.80288 6.5 7.33331C6.5 7.86375 6.71071 8.37245 7.08579 8.74753C7.46086 9.1226 7.96957 9.33331 8.5 9.33331C9.03043 9.33331 9.53914 9.1226 9.91421 8.74753Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                
+                </span>
+                <span class="arrow-down-icon">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.1666 6L8.49992 10.6667L3.83325 6" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
         </div>
         <div class="radio-buttons-wrapper">
             <div class="first">
@@ -62,6 +64,43 @@
             <label for="case-info">Describe your case</label>
             <textarea name="case-description" id="case-info"></textarea>
         </div>
-    </div>
+        <div class="phone-number-wrapper">
+            <label for="phone-number">Phone number</label>
+            <div class="phone-number-inputs-holder">
+                <select name="prefx" id="prefix">
+                    <option selected value="🇬🇪 +995 &nbsp;">🇬🇪 +995 &nbsp;</option>
+                    <option value="🇦🇲 +370 &nbsp;">🇦🇲 +370 &nbsp;</option>
+                    <option value="🇺🇸 +570 &nbsp;">🇺🇸 +570 &nbsp;</option>
+                </select>
+                <input type="tel"placeholder="Phone number" id="phone-number">
+                <span class="arrow-down-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.1666 6L8.49992 10.6667L3.83325 6" stroke="black" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="credit-card-data-wrapper">
+            <label for="card-number">Credit card information</label>
+            <input id="card-number" placeholder="Credit card no." type="number">
+            <div class="expire-date-ccv-holder">
+                <input placeholder="MM / YY" type="text">
+                <input placeholder="CCV" type="text">
+            </div>
+        </div>
+        <div class="checkbox-wrapper">
+            <input type="checkbox" name="first" id="first">
+            <label for="first">Value 1</label>
+            <input type="checkbox" name="second" id="second">
+            <label for="second">Value 2</label>
+        </div>
+        <div class="submit-button-wrapper">
+            <button type="submit">submit
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.5 3.33333L11.1667 8L6.5 12.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </form>
 </body>
 </html>
