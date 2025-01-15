@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* reset */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+/* project variables */
 :root {
     --background: #F2F2F2;
-
     --input-border: rgba(66, 80, 102, .4);
 }
+/* general styles*/
 body {
     background-color: var(--background);
     display: grid;
     place-items: center;
-    height: 100vh;
     font-family: "Roboto", serif;
 }
 label {
@@ -27,11 +28,14 @@ input{
     padding: 12px;
     border: 1px solid var(--input-border);
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(66, 80, 102, .1);
 }
 select {
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(66, 80, 102, .1);
 }
-.form-wrapper {
+/* custom styles */
+form.form-wrapper {
     width: 472px;
     background-color: #fff;
     padding: 60px;
@@ -50,9 +54,7 @@ select {
 .fullname-input {
     width: calc(50% - 5px);
 }
-
 .location-wrapper {
-    position: relative;
     margin-top: 10px;
 }
 #location {
@@ -65,23 +67,24 @@ select {
     appearance: none;
     outline: none;
     border: 1px solid var(--input-border);
-
 }
-
+.location-holder {
+    position: relative;
+}
 .location-icon {
     position: absolute;
     top: 50%;
     left: 12px;
+    transform: translateY(-50%);
 }
 .arrow-down-icon {
     position: absolute;
     top: 50%;
     right: 12px;
+    transform: translateY(-50%);
     cursor: pointer;
     pointer-events: none;
 }
-
-
 .radio-buttons-wrapper {
     display: flex;
     gap: 32px;
@@ -133,13 +136,6 @@ select {
     margin: 0;
     cursor: pointer;
 }
-
-.company-info-wrapper {
-    
-}
-.company-info-wrapper label{
-
-}
 .company-info-wrapper input{
     width: 100%;
 }
@@ -149,8 +145,6 @@ select {
 .case-description label {
     display: inline-block;
 }
-.case-description .info-icon {
-}
 .case-description textarea {
     display: block;
     width: 100%;
@@ -159,4 +153,98 @@ select {
     border-radius: 5px;
     padding: 12px;
     outline: none;
+    box-shadow: 0 2px 4px rgba(66, 80, 102, .1);
+}
+.phone-number-wrapper {
+    margin-block: 32px;
+}
+.phone-number-inputs-holder {
+    display: flex;
+    position: relative;
+}
+.phone-number-inputs-holder .arrow-down-icon{
+    right: unset;
+    left: 68px;
+    height: 16px;
+}
+.phone-number-inputs-holder::before {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    width: 1px;
+    height: 16px;
+    background-color: rgb(217, 217, 217);
+}
+.phone-number-wrapper select {
+    appearance: none;
+    outline: none;
+    border: 1px solid var(--input-border);
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 12px 32px 12px 12px;
+}
+.phone-number-wrapper input {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: -webkit-fill-available;
+    padding-left: 20px;
+}
+.credit-card-data-wrapper input{
+    width: 100%;
+}
+.expire-date-ccv-holder {
+    display: flex;
+    gap: 10px;
+    margin-block: 10px;
+}
+.checkbox-wrapper {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 42px;
+}
+.checkbox-wrapper input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font: inherit;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--input-border);
+    display: grid;
+    place-content: center;
+}
+.checkbox-wrapper input[type="checkbox"]::before {
+    content: "";
+    width: 8px;
+    height: 11px;
+    transform: scale(0) translate(0px, -2px) rotate(225deg);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 2px 2px 0 black;
+}
+.checkbox-wrapper input[type="checkbox"]:checked::before {
+    transform: scale(1) translate(0px, -2px) rotate(225deg);
+}
+.submit-button-wrapper button {
+    border: none;
+    color: #fff;
+    background-color: rgb(19, 106, 243);
+    font-family: "Roboto", serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: capitalize;
+    line-height: 16px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-button-wrapper button svg {
+    vertical-align: middle;
+    margin-left: 8px;
 }
