@@ -1,17 +1,236 @@
 [
     {
-        "title": "title 1",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, sunt!",
-        "date": "0.5"
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
     },
     {
-        "title": "title 2",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, sunt!",
-        "date": "0.5"
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
     },
     {
-        "title": "title 3",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, sunt!",
-        "date": "0.5"
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "child"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "female"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
+    },
+    {
+        "title": "პაპილომა",
+        "description": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის",
+        "date": "0.5",
+        "type": "vaccine",
+        "selectionImage": "card-images/vaccine.svg",
+        "virusImage": "card-images/virus-image.png",
+        "for": "male"
     }
 ]

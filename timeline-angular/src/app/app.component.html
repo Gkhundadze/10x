@@ -1,31 +1,44 @@
-<main>
-
-    <!-- <h1>{{ title }}</h1> -->
-    <section class="timeline-wrapper">
+<section class="timeline">
+  <div class="section-header">
+    <h2 class="section-title">ვაქცინაციის თაიმლაინი</h2>
+    <nav class="tab-navigation">
+        <ul>
+            <li>
+                <button (click)="onTabClick('child',$event)" id="child"  [class.active]="activeTab === 'child'" >ბავშვი</button>
+            </li>
+            <li>
+                <button (click)="onTabClick('female',$event)" id="female"  [class.active]="activeTab === 'female'" >ქალი</button>
+            </li>
+            <li>
+                <button (click)="onTabClick('male',$event)" id="male"  [class.active]="activeTab === 'male'" >კაცი</button>
+            </li>
+        </ul>
+    </nav>
+</div>
+    <div class="timeline-wrapper">
      <div class="line">
-      <article *ngFor="let item of timelineItems" class="timeline-item">
-        <div class="card-header">
-          <h2>{{ item.title }}</h2>
-        <div class="header-content-holder">
-          <div class="date-wrapper">
-            <span class="date">{{ item.date }}</span>
-            <span>წელი</span>
+        <article *ngFor="let item of timelineItems; let i = index" class="card-wrapper" [ngClass]="{ reversed: i % 2 === 1 }">
+          <div class="text-content-wrapper">
+              <h2 class="card-title">{{item.title}}</h2>
+              <div class="date-and-description">
+                  <div class="date-wrapper">
+                      <div class="date">{{item.date}}</div>
+                      <span>წელი</span>
+                  </div>
+                  <div class="description-wrapper">
+                      <p class="description">{{item.description}}</p>
+                      <a href="#" class="read-more">ვრცლად</a>
+                  </div>
+              </div>
           </div>
-          <p>{{ item.description }}</p>
-        </div>
-        <a class="read-more" href="#">ვრცლად</a>
-        </div>
-        <div class="card-body">
-          <div class="type-img-holder">
-            <img src="{{item.selectionImage}}" alt="{{ item.type }} image">
+          <div class="type-img-wrapper">
+              <img src="{{item.selectionImage}}" alt="vaccine image">
+              <div class="vertical-line"></div>
           </div>
-          <img src="{{item.virusImage}}" alt="{{item.title}} image">
-        </div>
-        
-        <div class="vertical-line"></div>
+          <div class="virus-image-wrapper">
+              <img src="{{item.virusImage}}" alt="virus immage" class="virus-image">
+          </div>
       </article>
      </div>
-    </section>
-
-</main>
-<!-- timelineItemsLength -->
+    </div>
+</section>
