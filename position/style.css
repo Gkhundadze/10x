@@ -11,6 +11,9 @@
 .tac {
     text-align: center;
 }
+.ac-center {
+    align-content: center;
+}
 .fz-xl {
     font-size: 42px;
 }
@@ -26,14 +29,29 @@
 .m-x-auto {
     margin-inline: auto;
 }
+.m-y-10 {
+    margin-block: 10px;
+}
+.m-y-20 {
+    margin-block: 20px;
+}
 .p-y-10 {
     padding-block: 10px;
+}
+.p-10{
+    padding: 10px;
 }
 .relative {
     position: relative;
 }
 .absolute {
     position: absolute;
+}
+.sticky {
+    position: sticky;
+}
+.fixed {
+    position: fixed;
 }
 /* utility classes END */
 
@@ -45,42 +63,93 @@ h1 {
 }
 .wrapper {
     background-color: #b5b770;
-    left: 50%;
-    top: 200px;
+    width: 400px;
+    height: 350px;
 }
 .child {
     width: 200px;
     height: 200px;
-    background-color: #591f1f;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s;
+    opacity: .7;
 }
 .first {
-    top: 0;
-    left: 0;
+    background-color: #591f1f;
+    top: 10px;
+    left: 10px;
 }
 .second {
     background-color: #41a660;
-    top: 20px;
-    left: 20px;
+    top: 50px;
+    left: 50px;
 }
 .third {
     background-color: #b4c12d;
-    top: 40px;
-    left: 40px;
+    top: 90px;
+    left: 90px;
 }
-
-
+.fourth {
+    background-color: #277886;
+    top: 130px;
+    left: 130px;
+}
+.wrapper .child:hover {
+    /* 
+    every child element on hover gets z-index of 10
+    and it will be on top of others when hovered
+    */
+    z-index: 10;
+    border: 1px dotted #fff;
+    opacity: 1;
+}
 .second-wrapper {
     width: 600px;
     height: 60px;
     background-color: #34959a;
     border-radius: 10px;
 }
-
 .icon {
     width: 30px;
     height: 30px;
     background-color: #d92c2c;
     left: 50%;
     top: 50%;
+    /* 
+    translate -50% is icon's (width / 2) and (height / 2 )
+    negative value to (in this case) move up by half of height
+    and move left half of width
+    because left: 50% counts from icon's left border
+    and top counts from icons top border
+    */
     transform: translate(-50%, -50%);
+}
+
+.sticky-wrapper {
+    width: 600px;
+    height: 1500px;
+    background-color: #8a7676;
+}
+.sticky-wrapper .sticky-item{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    /* 
+    sticky element will stick to the top value
+    (at this example 100px from top)
+    when user scrolls
+    */
+    top: 100px;
+}
+.fixed-item{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    /* 
+    fixed item takes coordinates and fixes itself
+    it doesn't finds relative parent, 
+    it points viewport dimensions
+    */
+    top: 100px;
+    right: 100px;
 }

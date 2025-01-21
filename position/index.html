@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="color-white tac fz-xl p-y-10 text-capitalize">position property</h1>
-    <div class="wrapper relative">
+    <h1 class="color-white tac fz-xl p-y-10 text-capitalize">position relative & absolute</h1>
+    <div class="wrapper relative m-x-auto m-y-20">
         <div class="first child absolute"></div>
         <div class="second child absolute"></div>
         <div class="third child absolute"></div>
+        <div class="fourth child absolute"></div>
     </div>
-
-    <div class="second-wrapper m-x-auto relative">
+    <div class="second-wrapper m-x-auto relative m-y-20">
         <div class="icon absolute"></div>
     </div>
+    <div class="sticky-wrapper relative m-x-auto">
+        <div class="sticky-item sticky text-capitalize">i'm sticky</div>
+    </div>
+    <div class="fixed-item fixed text-capitalize p-10 fz-md tac ac-center">fixed</div>
 </body>
 </html>
