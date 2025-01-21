@@ -1,0 +1,2 @@
+design link : https://www.figma.com/design/Lyt9fMF1ZDmYujHjRHnXX1/Editable-Stripe-Landing-Page---Responsive-Design-Breakdown-(Community)?node-id=0-1&p=f&t=NJ7UW6JtM4weFb99-0
+library for charts : https://www.chartjs.org/docs/latest/charts/line.html
