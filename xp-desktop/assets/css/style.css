@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --iconWidth: 65px;
+    --iconHeigh: 70px;
+    --dockHeight: 40px;
+    /* xp colors */
+    --xp-blue: #0f87f6;
+    --start-green: #81C046;
+}
+
+
+
+.desktop {
+    height: 100vh;
+    background-image: url(../img/xp-wallpaper.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.my-computer {
+    width: var(--iconWidth);
+    height: var(--iconHeigh);
+    background-image: url(../img/my-computer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+
+}
+
+.recycle-bin {
+    width: var(--iconWidth);
+    height: var(--iconHeigh);
+    background-image: url(../img/recycle-empty.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: calc(var(--dockHeight) + 20px);
+    right: 20px;
+    cursor: pointer;
+}
+.explorer {
+    width: 60vw;
+    height: 50vh;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        "header header header header header header header"
+        "aside aside content content content content content"
+        "aside aside content content content content content"
+        "aside aside content content content content content"
+        "aside aside content content content content content"
+        "aside aside content content content content content"; 
+    border-radius: 10px;
+}
+.explorer header {
+    grid-area: header;
+    background-color: var(--xp-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-inline: 10px;
+}
+.explorer header .logo {
+    color: #fff;
+}
+.explorer header .cta{
+    display: flex;
+    align-self: center;
+    gap: 5px;
+}
+.explorer header .cta img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.explorer aside {
+    grid-area: aside;
+    background-color: #b73f3f;
+}
+.explorer .content {
+    grid-area: content;
+    background-color: #b49595;
+}
+
+.desktop .dock {
+    height: var(--dockHeight);
+    width: 100%;
+    background-color: var(--xp-blue);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dock .start {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background-color: var(--start-green);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.dock .start h5{
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+.dock .start img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.dock .time {
+    color: #fff;
+    margin-right: 10px;
+}
