@@ -4,15 +4,16 @@
     box-sizing: border-box;
 }
 :root {
-    --iconWidth: 65px;
-    --iconHeigh: 70px;
+    --iconWidth: 75px;
+    --iconHeigh: 80px;
     --dockHeight: 40px;
     /* xp colors */
     --xp-blue: #0f87f6;
     --start-green: #81C046;
 }
-
-
+body {
+    overflow: hidden;
+}
 
 .desktop {
     height: 100vh;
@@ -22,31 +23,48 @@
     background-position: center;
     position: relative;
 }
-.my-computer {
+/* icon */
+.icon {
     width: var(--iconWidth);
     height: var(--iconHeigh);
-    background-image: url(../img/my-computer.png);
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
     position: absolute;
-    top: 20px;
-    left: 20px;
     cursor: pointer;
-
+    color: #fff;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.icon img {
+    width: 100%;
+    display: block;
+    pointer-events: none;
+}
+.icon:hover {
+    opacity: .8;
+}
+.icon h4 {
+    /* margin-top: var(--iconHeigh); */
+    width: calc(var(--iconWidth) + 20px);
+    text-align: center;
+    pointer-events: none;
+}
+.my-computer {
+    /* background-image: url(../img/my-computer.png); */
+    top: 30px;
+    left: 20px;
 }
 
+
 .recycle-bin {
-    width: var(--iconWidth);
-    height: var(--iconHeigh);
-    background-image: url(../img/recycle-empty.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    bottom: calc(var(--dockHeight) + 20px);
+    /* background-image: url(../img/recycle-empty.webp); */
+    bottom: calc(var(--dockHeight) + 40px);
     right: 20px;
-    cursor: pointer;
 }
 .explorer {
     width: 60vw;
@@ -68,6 +86,7 @@
         "aside aside content content content content content"
         "aside aside content content content content content"; 
     border-radius: 10px;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 .explorer header {
     grid-area: header;
@@ -102,6 +121,8 @@
     background-color: #b49595;
 }
 
+
+/* dock */
 .desktop .dock {
     height: var(--dockHeight);
     width: 100%;
@@ -121,19 +142,62 @@
     background-color: var(--start-green);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    cursor: pointer;
 }
 .dock .start h5{
     color: #fff;
     text-transform: capitalize;
     font-size: 22px;
     font-family: sans-serif;
+    pointer-events: none;
 }
 .dock .start img {
     width: 30px;
     height: 30px;
     display: block;
+    pointer-events: none;
+
 }
 .dock .time {
     color: #fff;
     margin-right: 10px;
+    /* cursor: pointer; */
+}
+.dock .time time {
+    pointer-events: none;
+}
+
+/* context menu */
+.context-menu {
+    position: absolute;
+    background: #ececec;
+    border: 1px solid #aaa;
+    display: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.context-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+}
+.context-menu ul li {
+    padding: 8px 20px;
+    cursor: pointer;
+}
+.context-menu ul li:hover {
+    background: #b5d5ff;
+}
+
+
+
+
+@keyframes closeWindow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
 }

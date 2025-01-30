@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="desktop">
+    <div class="desktop" id="desktop">
         <div class="explorer">
-            <header>
+            <header class="explorer-header">
                 <div class="logo">
                     title
                 </div>
                 <div class="cta">
                     <img src="assets/img/minimize-btn.png" alt="">
                     <img src="assets/img/maximize-btn.jpeg" alt="">
-                    <img src="assets/img/close-btn.png" alt="">
+                    <img class="close" src="assets/img/close-btn.png" alt="">
                 </div>
             </header>
             <aside>aside</aside>
@@ -24,8 +24,16 @@
                 content
             </section>
         </div>
-        <div class="my-computer"></div>
-        <div class="recycle-bin"></div>
+        <!-- icons -->
+        <div class="icon my-computer">
+            <img src="assets/img/my-computer.png" alt="">
+            <h4>My Computer</h4>
+        </div>
+        <div class="icon recycle-bin">
+            <img src="assets/img/recycle-empty.webp" alt="">
+            <h4>recycle bin</h4>
+        </div>
+        <!-- dock -->
         <div class="dock">
             <div class="start">
                 <img src="assets/img/xp-logo.png" alt="">
@@ -35,6 +43,16 @@
                 <time>21:40</time>
             </div>
         </div>
+        <!-- Context Menu -->
+        <div class="context-menu" id="contextMenu">
+            <ul>
+                <li>Create New</li>
+                <li>Refresh</li>
+                <li>Properties</li>
+            </ul>
     </div>
+
+
+    <script src="index.js"></script>
 </body>
 </html>
