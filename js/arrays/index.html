@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>JavaScript Arrays - Interactive Example</h2>
+        <input type="text" id="inputValue" placeholder="Enter value">
+        <div class="buttons-wrapper">
+            <button onclick="addToEnd()">Push (Add to End)</button>
+            <button onclick="removeFromEnd()">Pop (Remove from End)</button>
+            <button onclick="addToStart()">Unshift (Add to Start)</button>
+            <button onclick="removeFromStart()">Shift (Remove from Start)</button>
+            <button onclick="sortArray()">Sort</button>
+            <button onclick="reverseArray()">Reverse</button>
+        </div>
+        <h3>Array Elements:</h3>
+        <ul class="array-box" id="arrayDisplay"></ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
