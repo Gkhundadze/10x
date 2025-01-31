@@ -6,10 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const maximizeBtn = document.querySelector('.maximize')
     const icons = document.querySelectorAll('.icon')
     const time = document.querySelector('.time time')
-
-
     const explorerHeader = document.querySelector(".explorer-header");
-    
+    const welcomeAudio = new Audio("assets/audio/xp-startup.mp3");
+    const welcomeScreen = document.querySelector('.welcome-screen');
+
+    // Hide the welcome screen initially
+    welcomeScreen.style.opacity = "1";
+    welcomeScreen.style.visibility = "visible";
+
+    function startWelcomeScreen() {
+        welcomeAudio.play().catch((error) => console.error("Playback error:", error));
+
+        welcomeScreen.style.animation = "fadeOut 3s ease-out forwards";
+
+        // Remove event listener after first press
+        document.removeEventListener("keydown", spaceKeyListener);
+    }
+
+    function spaceKeyListener(event) {
+        if (event.code === "Space") {
+            startWelcomeScreen();
+        }
+    }
+
+    document.addEventListener("keydown", spaceKeyListener);
     let isDragging = false;
     let offsetX = 0, offsetY = 0;
     

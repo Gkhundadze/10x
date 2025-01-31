@@ -23,6 +23,7 @@ a {
 
 
     /* z indexes */
+    --load-screen: 10000;
     --fullScreen: 1000;
     --explorer: 800;
 }
@@ -260,7 +261,32 @@ body {
     background: #b5d5ff;
 }
 
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/windows-startup.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: var(--load-screen);
+    opacity: 0;
+}
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
 
 @keyframes closeWindow {
