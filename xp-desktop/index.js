@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function startWelcomeScreen() {
         welcomeAudio.play().catch((error) => console.error("Playback error:", error));
 
-        welcomeScreen.style.animation = "fadeOut 3s ease-out forwards";
+        welcomeScreen.style.animation = "fadeOut 2s ease-out forwards";
 
         // Remove event listener after first press
         document.removeEventListener("keydown", spaceKeyListener);
     }
 
     function spaceKeyListener(event) {
-        if (event.code === "Space") {
+        if (event.code === "Enter") {
             startWelcomeScreen();
         }
     }
