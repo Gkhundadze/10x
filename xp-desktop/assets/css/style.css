@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 :root {
     --iconWidth: 75px;
     --iconHeigh: 80px;
@@ -10,6 +17,14 @@
     /* xp colors */
     --xp-blue: #0f87f6;
     --start-green: #81C046;
+    --sidebar-bg: #6f8bde;
+    --sidebar-inner-bg: #d7def8;
+    --sidebar-item-color: #2e549e;
+
+
+    /* z indexes */
+    --fullScreen: 1000;
+    --explorer: 800;
 }
 body {
     overflow: hidden;
@@ -22,16 +37,15 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
+    cursor: url('../img/cursor.cur'), auto;
 }
 /* icon */
+.explorer .icon {
+    color: #000;
+}
 .icon {
     width: var(--iconWidth);
-    height: var(--iconHeigh);
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
     position: absolute;
-    cursor: pointer;
     color: #fff;
     transition: .3s;
     display: flex;
@@ -39,6 +53,14 @@ body {
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+.icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+.icon.active::after{
+    background-color: rgba(0, 0, 255, .5);
 }
 .icon img {
     width: 100%;
@@ -49,17 +71,16 @@ body {
     opacity: .8;
 }
 .icon h4 {
-    /* margin-top: var(--iconHeigh); */
-    width: calc(var(--iconWidth) + 20px);
     text-align: center;
     pointer-events: none;
 }
 .my-computer {
-    /* background-image: url(../img/my-computer.png); */
     top: 30px;
     left: 20px;
 }
-
+.content .folder {
+    position: relative;
+}
 
 .recycle-bin {
     /* background-image: url(../img/recycle-empty.webp); */
@@ -68,7 +89,7 @@ body {
 }
 .explorer {
     width: 60vw;
-    height: 50vh;
+    height: 60vh;
     background-color: #fff;
     position: absolute;
     top: 50%;
@@ -86,7 +107,19 @@ body {
         "aside aside content content content content content"
         "aside aside content content content content content"; 
     border-radius: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    border: 2px solid var(--xp-blue);
+    z-index: var(--explorer);
+}
+.explorer.maximized {
+    width: 100vw !important;
+    height: calc(100vh - var(--dockHeight) - 1px) !important;
+    z-index: var(--fullScreen);
+    animation: maximizeWindow 0.1s ease-out;
+    inset: 0 !important;
+    bottom: var(--dockHeight);
+    transform: translate(0, 0);
 }
 .explorer header {
     grid-area: header;
@@ -97,9 +130,18 @@ body {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     padding-inline: 10px;
+    cursor: grab;
+    user-select: none; /* Prevents text selection while dragging */
 }
 .explorer header .logo {
     color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.explorer header .logo img{
+    display: block;
+    width: 20px;
 }
 .explorer header .cta{
     display: flex;
@@ -112,13 +154,45 @@ body {
     height: 20px;
     cursor: pointer;
 }
-.explorer aside {
+.explorer .sidebar {
     grid-area: aside;
-    background-color: #b73f3f;
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    border: 1px solid #fff;
+    border-right: 1px solid #ccc;;
+}
+.explorer .sidebar ul{
+    color: var(--sidebar-item-color);
+    text-transform: capitalize;
+    background-color: var(--sidebar-inner-bg);
+    padding: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.explorer .sidebar ul li a{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+.explorer .sidebar ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+.sidebar ul li img {
+    display: block;
+    width: 20px;
 }
 .explorer .content {
+    position: relative;
     grid-area: content;
-    background-color: #b49595;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    padding: 20px;
+    gap: 20px;
 }
 
 
@@ -161,7 +235,6 @@ body {
 .dock .time {
     color: #fff;
     margin-right: 10px;
-    /* cursor: pointer; */
 }
 .dock .time time {
     pointer-events: none;
@@ -182,7 +255,6 @@ body {
 }
 .context-menu ul li {
     padding: 8px 20px;
-    cursor: pointer;
 }
 .context-menu ul li:hover {
     background: #b5d5ff;
@@ -199,5 +271,18 @@ body {
     100% {
         transform: scale(0.5);
         opacity: 0;
+    }
+}
+
+@keyframes maximizeWindow {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+        width: 60vw;
+        height: 50vh;
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+        width: 100vw;
+        height: 100vh;
     }
 }
