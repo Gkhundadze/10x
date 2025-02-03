@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="desktop" id="desktop">
-        <div class="explorer">
+        <div class="explorer my-computer hide">
             <header class="explorer-header">
                 <div class="logo">
                     <img src="assets/img/my-computer.png" alt="">
                     <h5>My Computer</h5>
                 </div>
                 <div class="cta">
-                    <img src="assets/img/minimize-btn.png" alt="">
+                    <img class="minimize" src="assets/img/minimize-btn.png" alt="">
                     <img class="maximize" src="assets/img/maximize-btn.jpeg" alt="">
                     <img class="close" src="assets/img/close-btn.png" alt="">
                 </div>
@@ -50,17 +50,36 @@
                 </ul>
             </aside>
             <section class="content">
-                <div class="icon folder">
-                    <img src="assets/img/folder-empty.png" alt="">
-                    <h4>New Folder</h4>
+
+                <div class="shared">
+                    <h5>files stored on this computer</h5>
+                    <div class="inner-wrapper">
+                        <div class="icon folder">
+                            <img src="assets/img/shared-folders.png" alt="">
+                            <h4>Documents</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon folder">
-                    <img src="assets/img/folder-empty.png" alt="">
-                    <h4>New Folder 2</h4>
+
+                <div class="hard-drives">
+                    <h5>hard disk drives</h5>
+                    <div class="inner-wrapper">
+                        <div class="icon folder">
+                            <img src="assets/img/hard-drive.png" alt="">
+                            <h4>Local Disc (C:)</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon folder">
-                    <img src="assets/img/folder-empty.png" alt="">
-                    <h4>New Folder 3</h4>
+
+                <div class="removable-drives">
+                    <h5>devices with removable storage</h5>
+                    <div class="inner-wrapper">
+                        <div class="icon folder">
+                            <img src="assets/img/floppy-disk.png" alt="">
+                            <h4>Floppy (F:)</h4>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </div>
@@ -78,6 +97,12 @@
             <div class="start">
                 <img src="assets/img/xp-logo.png" alt="">
                 <h5>start</h5>
+            </div>
+            <div class="running-apps">
+                <!-- <div class="running-app-wrapper">
+                    <img src="assets/img/my-computer.png" alt="">
+                    <h4>My Computer</h4>
+                </div> -->
             </div>
             <div class="time">
                 <time>

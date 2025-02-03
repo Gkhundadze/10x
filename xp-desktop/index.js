@@ -3,12 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktop = document.getElementById("desktop");
     const contextMenu = document.getElementById("contextMenu");
     const closeBtn = document.querySelector('.close')
+    const minimizeBtn = document.querySelector('.minimize')
     const maximizeBtn = document.querySelector('.maximize')
     const icons = document.querySelectorAll('.icon')
     const time = document.querySelector('.time time')
     const explorerHeader = document.querySelector(".explorer-header");
     const welcomeAudio = new Audio("assets/audio/xp-startup.mp3");
+    const openFolder = new Audio("assets/audio/start.mp3");
+    const minimizeFolder = new Audio("assets/audio/minimize.mp3");
     const welcomeScreen = document.querySelector('.welcome-screen');
+    // started programs in dock
+    const runingAppsInDock = document.querySelector('.running-apps')
+
 
     // Hide the welcome screen initially
     welcomeScreen.style.opacity = "1";
@@ -16,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startWelcomeScreen() {
         welcomeAudio.play().catch((error) => console.error("Playback error:", error));
-
         welcomeScreen.style.animation = "fadeOut 2s ease-out forwards";
 
         // Remove event listener after first press
@@ -71,11 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     getCurrentTime(time)
     handleIconSelection(icons)
-    closeBtn.addEventListener('click', () => {
+    closeBtn.addEventListener('click', (e) => {
+        e.stopImmediatePropagation()
         explorerWindow.style.animation = 'closeWindow 0.3s ease-out';
-
+        runingAppsInDock.innerHTML = ''
         setTimeout(() => {
-            explorerWindow.style.display = 'none';
+            explorerWindow.classList.add('hide')
             explorerWindow.style.animation = ''; // Reset animation for next time
         }, 300); // Match the duration of the CSS animation
     })
@@ -83,6 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopImmediatePropagation()
         console.log('maximize clicked')
         explorerWindow.classList.toggle('maximized')
+    })
+    minimizeBtn.addEventListener('click', (e) => {
+        e.stopImmediatePropagation()
+        minimizeFolder.play().catch((error) => console.error("Playback error:", error));
+        console.log('minimize clicked')
+        explorerWindow.classList.toggle('minimized')
     })
 
 
@@ -122,6 +134,25 @@ document.addEventListener('DOMContentLoaded', () => {
             return
         }
     });
+    // each icon double click opens explorer
+    icons.forEach((icon) => {
+        icon.addEventListener('dblclick', (e) => {
+            if(explorerWindow.classList.contains('hide')) {
+                const runnigApp = ` <div class="running-app-wrapper">
+                    <img src="assets/img/my-computer.png" alt="">
+                    <h4>My Computer</h4>
+                </div>`
+                runingAppsInDock.innerHTML = runnigApp
+                document.querySelector('.running-app-wrapper').addEventListener('click', () => {
+                    explorerWindow.classList.toggle('minimized')
+                })
+                openFolder.play().catch((error) => console.error("Playback error:", error));
+                explorerWindow.classList.remove('hide')
+                
+            }
+        })
+    })
+
 })
 
 
