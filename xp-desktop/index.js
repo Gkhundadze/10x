@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const openFolder = new Audio("assets/audio/start.mp3");
     const minimizeFolder = new Audio("assets/audio/minimize.mp3");
     const welcomeScreen = document.querySelector('.welcome-screen');
+    // start menu
+    const startMenu = document.querySelector('.start-menu')
+    const startBtn = document.querySelector('.start')
+    startBtn.addEventListener('click', () => {
+        startMenu.classList.toggle('hide')
+    })
 
     // started programs in dock
     const runingAppsInDock = document.querySelector('.running-apps')
@@ -131,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             icons.forEach((icon) => {
                 icon.classList.remove('active')
             })
-        } else {
+        }else {
             return
         }
     });

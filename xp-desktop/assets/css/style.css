@@ -20,7 +20,7 @@ a {
     --sidebar-bg: #6f8bde;
     --sidebar-inner-bg: #d7def8;
     --sidebar-item-color: #2e549e;
-
+    --start-menu-rightSide: #d3e5fb;
 
     /* z indexes */
     --load-screen: 10000;
@@ -242,6 +242,7 @@ body {
     gap: 5px;
 }
 .dock .start {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -250,6 +251,50 @@ body {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
+}
+.dock .start .start-menu.hide {
+    display: none;
+}
+.dock .start .start-menu {
+    position: absolute;
+    left: 0;
+    bottom: calc(var(--dockHeight) + 1px);
+    width: 400px;
+    height: 600px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 80px 1fr 1fr 1fr 1fr 80px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "head head"
+      "content content"
+      "content content"
+      "content content"
+      "content content"
+      "body body"; 
+      background-color: var(--xp-blue);
+      border: 1px solid var(--xp-blue);
+      border-radius: 10px;
+}
+.start-menu .head { 
+    grid-area: head; 
+}
+.start-menu .content { 
+    grid-area: content; 
+    display: flex;
+}
+.start-menu .content .left,
+.start-menu .content .right {
+    width: 50%;
+}
+.start-menu .content .left{ 
+    background-color: #fff;
+}
+.start-menu .content .right{ 
+    background-color: var(--start-menu-rightSide);
+}
+.start-menu .footer { 
+    grid-area: body; 
 }
 .dock .start h5{
     color: #fff;
