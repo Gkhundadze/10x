@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openFolder = new Audio("assets/audio/start.mp3");
     const minimizeFolder = new Audio("assets/audio/minimize.mp3");
     const welcomeScreen = document.querySelector('.welcome-screen');
+
     // started programs in dock
     const runingAppsInDock = document.querySelector('.running-apps')
 

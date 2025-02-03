@@ -138,6 +138,9 @@ body {
     width: fit-content;
 }
 .explorer.my-computer .inner-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     padding-block: 20px;
 }
 .explorer.my-computer .icon img {
