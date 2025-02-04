@@ -57,6 +57,12 @@ body {
     align-items: center;
     gap: 5px;
 }
+.selection-box {
+    position: absolute;
+    border: 1px dashed #237fdb;
+    background: rgba(51, 153, 255, 0.2);
+    pointer-events: none;
+}
 .icon::after {
     content: '';
     position: absolute;

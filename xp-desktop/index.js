@@ -17,6 +17,106 @@ document.addEventListener('DOMContentLoaded', () => {
     const refreshBtn = document.querySelector('.refresh')
     let loadingTime = 5000; //loading time
     const runingAppsInDock = document.querySelector('.running-apps')   // started programs in dock
+    const startMenu = document.querySelector('.start-menu')  // start menu
+    const startBtn = document.querySelector('.start') // start menu button
+
+    let selectionBox = null;
+    let startX, startY;
+    
+    desktop.addEventListener("mousedown", (e) => {
+        if (e.button !== 0) return; // Only left click
+        if (!selectionBox) {
+            selectionBox = document.createElement("div");
+            selectionBox.classList.add("selection-box");
+            desktop.appendChild(selectionBox);
+        }
+    
+        startX = e.clientX;
+        startY = e.clientY;
+        selectionBox.style.left = `${startX}px`;
+        selectionBox.style.top = `${startY}px`;
+        selectionBox.style.width = "0px";
+        selectionBox.style.height = "0px";
+    
+        function onMouseMove(e) {
+            const x = Math.min(e.clientX, startX);
+            const y = Math.min(e.clientY, startY);
+            const width = Math.abs(e.clientX - startX);
+            const height = Math.abs(e.clientY - startY);
+    
+            selectionBox.style.left = `${x}px`;
+            selectionBox.style.top = `${y}px`;
+            selectionBox.style.width = `${width}px`;
+            selectionBox.style.height = `${height}px`;
+    
+            // Check which icons are inside the box
+            icons.forEach((icon) => {
+                const iconRect = icon.getBoundingClientRect();
+                const selectionRect = selectionBox.getBoundingClientRect();
+    
+                if (
+                    iconRect.left < selectionRect.right &&
+                    iconRect.right > selectionRect.left &&
+                    iconRect.top < selectionRect.bottom &&
+                    iconRect.bottom > selectionRect.top
+                ) {
+                    icon.classList.add("active");
+                } else {
+                    icon.classList.remove("active");
+                }
+            });
+        }
+    
+        function onMouseUp(e) {
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+            
+            // Remove selection box without triggering click event
+            setTimeout(() => {
+                if (selectionBox) selectionBox.remove();
+                selectionBox = null;
+            }, 100);
+        
+            e.stopPropagation(); // Prevents desktop click event from deselecting icons
+        }
+    
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    });
+    
+
+    // document.addEventListener("click", (e) => {
+    //     contextMenu.style.display = "none";
+    //     if (!e.target.classList.contains('icon')) {
+    //         icons.forEach((icon) => {
+    //             icon.classList.remove('active')
+    //         })
+    //     }else {
+    //         return
+    //     }
+    // });
+    // Deselect all icons on click outside
+    // desktop.addEventListener("click", (e) => {
+    //     contextMenu.style.display = "none";
+    //     if (!e.target.classList.contains("icon")) {
+    //         icons.forEach((icon) => icon.classList.remove("active"));
+    //         console.log('remove active class from icons')
+    //     }
+    // });
+
+    // desktop.addEventListener("click", (e) => {
+    //     if (!e.target.classList.contains("icon") && !e.shiftKey && !e.ctrlKey) {
+    //         icons.forEach((icon) => icon.classList.remove("active"));
+    //     }
+    // });
+
+
+
+
+
+
+
+
 
     refreshBtn.addEventListener('click', () => {
         const sound = new Audio("assets/audio/start.mp3");
@@ -29,14 +129,21 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    const startMenu = document.querySelector('.start-menu')  // start menu
-    const startBtn = document.querySelector('.start') // start menu button
+    
 
 
-    // on start button clicked it triggers startmenu adding "hide" class on it
-    startBtn.addEventListener('click', () => {
-        startMenu.classList.toggle('hide')
-    })
+   // Toggle Start Menu on button click
+    startBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent this click from triggering the document event
+        startMenu.classList.toggle("hide");
+    });
+
+    // Hide Start Menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!startMenu.contains(e.target) && !startBtn.contains(e.target)) {
+            startMenu.classList.add("hide");
+        }
+    });
 
     
     // show loading gif
@@ -163,16 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.addEventListener("click", (e) => {
-        contextMenu.style.display = "none";
-        if (!e.target.classList.contains('icon')) {
-            icons.forEach((icon) => {
-                icon.classList.remove('active')
-            })
-        }else {
-            return
-        }
-    });
+    
     // each icon double click opens explorer
     icons.forEach((icon) => {
         icon.addEventListener('dblclick', (e) => {
@@ -208,16 +306,17 @@ function getCurrentTime(target) {
 
 function handleIconSelection(iconsArr) {
     iconsArr.forEach((icon) => {
-        icon.addEventListener('click', (e) => {
-            e.preventDefault()
-            iconsArr.forEach((icon) => {
-                icon.classList.remove('active')
-            })
-            if (e.target.classList.contains('active')) {
-                e.target.classList.remove('active')
+        icon.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // If holding Ctrl (or Cmd on Mac), allow multiple selection
+            if (e.ctrlKey || e.metaKey) {
+                icon.classList.toggle("active");
             } else {
-                e.target.classList.add('active')
+                // Otherwise, select only one
+                iconsArr.forEach((icon) => icon.classList.remove("active"));
+                icon.classList.add("active");
             }
-        })
-    })
+        });
+    });
 }
