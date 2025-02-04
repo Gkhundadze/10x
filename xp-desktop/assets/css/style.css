@@ -278,6 +278,7 @@ body {
       background-color: var(--xp-blue);
       border: 1px solid var(--xp-blue);
       border-radius: 10px;
+    cursor: default;
 }
 .start-menu .head { 
     background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 80%, #ffffff80 100%);
@@ -293,6 +294,46 @@ body {
 }
 .start-menu .content .left{ 
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.left .all-programs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(to right, transparent 0%, var(--sidebar-bg) 30%, transparent 100%) 1;
+}
+.left .all-programs:hover {
+    background-color: rgba(0,0,0, .1);
+}
+.left .all-programs h6 {
+    font-weight: normal;
+    font-size: 18px;
+}
+.left .all-programs img {
+    width: 20px;
+}
+.start-menu .content .left .programs {
+    padding: 10px;
+}
+.start-menu .programs .program {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.start-menu .programs h6 {
+    font-weight: normal;
+    font-size: 14px;
+}
+.start-menu .programs .program:hover {
+    background-color: rgba(0,0,0, .1);
+}
+.start-menu .programs .program img {
+    width: 30px;
 }
 .start-menu .content .right{ 
     background-color: var(--start-menu-rightSide);
@@ -395,6 +436,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     z-index: var(--loading);
+    cursor: none;
 }
 
 @keyframes fadeOut {
@@ -432,5 +474,14 @@ body {
         transform: scale(1) translate(0, 0);
         width: 100vw;
         height: 100vh;
+    }
+}
+
+@keyframes refresh {
+    0% {
+        display: none;
+    }
+    100% {
+        display: flex;
     }
 }

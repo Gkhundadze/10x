@@ -14,10 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const minimizeFolder = new Audio("assets/audio/minimize.mp3"); //minimize sound
     const welcomeScreen = document.querySelector('.welcome-screen'); // Xp welcome screen
     const loadingScreen = document.querySelector('.loading-xp') // Loading layer
+    const refreshBtn = document.querySelector('.refresh')
     let loadingTime = 5000; //loading time
     const runingAppsInDock = document.querySelector('.running-apps')   // started programs in dock
 
-   
+    refreshBtn.addEventListener('click', () => {
+        const sound = new Audio("assets/audio/start.mp3");
+        sound.play().catch((error) => console.error("Playback error:", error));
+        icons.forEach((icon) => {
+            icon.style.animation = 'refresh .1s ease-in-out forwards'
+            setTimeout(() => {
+                icon.style.animation = ''
+            }, 500)
+        })
+    })
+
     const startMenu = document.querySelector('.start-menu')  // start menu
     const startBtn = document.querySelector('.start') // start menu button
 
@@ -36,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // simulate black screen after loading xp
     setTimeout(() => {
         loadingScreen.style.background = '#000'
+        loadingScreen.style.cursor = 'default'
     }, loadingTime - 2000)
 
     // Hide the welcome screen initially
