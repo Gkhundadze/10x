@@ -1,27 +1,42 @@
+// program starts when all DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const explorerWindow = document.querySelector('.explorer')
-    const desktop = document.getElementById("desktop");
-    const contextMenu = document.getElementById("contextMenu");
-    const closeBtn = document.querySelector('.close')
-    const minimizeBtn = document.querySelector('.minimize')
-    const maximizeBtn = document.querySelector('.maximize')
-    const icons = document.querySelectorAll('.icon')
-    const time = document.querySelector('.time time')
-    const explorerHeader = document.querySelector(".explorer-header");
-    const welcomeAudio = new Audio("assets/audio/xp-startup.mp3");
-    const openFolder = new Audio("assets/audio/start.mp3");
-    const minimizeFolder = new Audio("assets/audio/minimize.mp3");
-    const welcomeScreen = document.querySelector('.welcome-screen');
-    // start menu
-    const startMenu = document.querySelector('.start-menu')
-    const startBtn = document.querySelector('.start')
+    const explorerWindow = document.querySelector('.explorer') // explorer
+    const desktop = document.getElementById("desktop"); // desktop
+    const contextMenu = document.getElementById("contextMenu"); // context menu
+    const closeBtn = document.querySelector('.close') // close button
+    const minimizeBtn = document.querySelector('.minimize') // minimize button
+    const maximizeBtn = document.querySelector('.maximize') // maximize button
+    const icons = document.querySelectorAll('.icon') // All shortcuts
+    const time = document.querySelector('.time time') // time variable
+    const explorerHeader = document.querySelector(".explorer-header"); // explorer header
+    const welcomeAudio = new Audio("assets/audio/xp-startup.mp3"); // Xp welcome screen sound
+    const openFolder = new Audio("assets/audio/start.mp3"); // folder open & redirect sound
+    const minimizeFolder = new Audio("assets/audio/minimize.mp3"); //minimize sound
+    const welcomeScreen = document.querySelector('.welcome-screen'); // Xp welcome screen
+    const loadingScreen = document.querySelector('.loading-xp') // Loading layer
+    let loadingTime = 5000; //loading time
+    const runingAppsInDock = document.querySelector('.running-apps')   // started programs in dock
+
+   
+    const startMenu = document.querySelector('.start-menu')  // start menu
+    const startBtn = document.querySelector('.start') // start menu button
+
+
+    // on start button clicked it triggers startmenu adding "hide" class on it
     startBtn.addEventListener('click', () => {
         startMenu.classList.toggle('hide')
     })
 
-    // started programs in dock
-    const runingAppsInDock = document.querySelector('.running-apps')
-
+    
+    // show loading gif
+    setTimeout(() => {
+        loadingScreen.remove()
+    }, loadingTime)
+    
+    // simulate black screen after loading xp
+    setTimeout(() => {
+        loadingScreen.style.background = '#000'
+    }, loadingTime - 2000)
 
     // Hide the welcome screen initially
     welcomeScreen.style.opacity = "1";
@@ -32,16 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
         welcomeScreen.style.animation = "fadeOut 2s ease-out forwards";
 
         // Remove event listener after first press
-        document.removeEventListener("keydown", spaceKeyListener);
+        document.removeEventListener("keydown", enterKeyListener);
     }
 
-    function spaceKeyListener(event) {
+ 
+    function enterKeyListener(event) {
         if (event.code === "Enter") {
             startWelcomeScreen();
         }
     }
 
-    document.addEventListener("keydown", spaceKeyListener);
+    document.addEventListener("keydown", enterKeyListener);
     let isDragging = false;
     let offsetX = 0, offsetY = 0;
     
@@ -81,8 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    getCurrentTime(time)
-    handleIconSelection(icons)
+    getCurrentTime(time) // sets local time
+
+    handleIconSelection(icons) // handles mouse click on icon (makes icon selected)
+
     closeBtn.addEventListener('click', (e) => {
         e.stopImmediatePropagation()
         explorerWindow.style.animation = 'closeWindow 0.3s ease-out';
@@ -92,11 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
             explorerWindow.style.animation = ''; // Reset animation for next time
         }, 300); // Match the duration of the CSS animation
     })
+
     maximizeBtn.addEventListener('click', (e) => {
         e.stopImmediatePropagation()
         console.log('maximize clicked')
         explorerWindow.classList.toggle('maximized')
     })
+    
     minimizeBtn.addEventListener('click', (e) => {
         e.stopImmediatePropagation()
         minimizeFolder.play().catch((error) => console.error("Playback error:", error));

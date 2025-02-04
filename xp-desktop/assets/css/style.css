@@ -16,6 +16,7 @@ a {
     --dockHeight: 40px;
     /* xp colors */
     --xp-blue: #0f87f6;
+    --xp-blue-dark: #1663d2;
     --start-green: #81C046;
     --sidebar-bg: #6f8bde;
     --sidebar-inner-bg: #d7def8;
@@ -23,6 +24,7 @@ a {
     --start-menu-rightSide: #d3e5fb;
 
     /* z indexes */
+    --loading: 20000;
     --load-screen: 10000;
     --fullScreen: 1000;
     --explorer: 800;
@@ -109,7 +111,7 @@ body {
         "aside aside content content content content content"
         "aside aside content content content content content"; 
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+    box-shadow: 3px 7px 20px rgb(0 0 0 / 0.5);
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     border: 2px solid var(--xp-blue);
     z-index: var(--explorer);
@@ -148,7 +150,7 @@ body {
 }
 .explorer header {
     grid-area: header;
-    background-color: var(--xp-blue);
+    background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 90%, #ffffff80 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -156,7 +158,6 @@ body {
     border-top-left-radius: 10px;
     padding-inline: 10px;
     cursor: grab;
-    user-select: none; /* Prevents text selection while dragging */
 }
 .explorer header .logo {
     color: #fff;
@@ -175,8 +176,8 @@ body {
 }
 .explorer header .cta img {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 .explorer .sidebar {
@@ -240,6 +241,8 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 100%);
+
 }
 .dock .start {
     position: relative;
@@ -277,6 +280,7 @@ body {
       border-radius: 10px;
 }
 .start-menu .head { 
+    background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 80%, #ffffff80 100%);
     grid-area: head; 
 }
 .start-menu .content { 
@@ -294,6 +298,8 @@ body {
     background-color: var(--start-menu-rightSide);
 }
 .start-menu .footer { 
+    background: linear-gradient(0deg, var(--xp-blue-dark) 40%, var(--xp-blue) 80%, #ffffff80 100%);
+
     grid-area: body; 
 }
 .dock .start h5{
@@ -377,6 +383,18 @@ body {
     background-size: cover;
     z-index: var(--load-screen);
     opacity: 0;
+}
+.loading-xp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/xp-loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: var(--loading);
 }
 
 @keyframes fadeOut {
