@@ -26,6 +26,7 @@ a {
     /* z indexes */
     --loading: 20000;
     --load-screen: 10000;
+    --error: 5000;
     --fullScreen: 1000;
     --explorer: 800;
 }
@@ -445,6 +446,68 @@ body {
     cursor: none;
 }
 
+.error-wrapper.active {
+    display: block;
+}
+.error-wrapper {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: var(--error);
+    margin: auto;
+    width: 550px;
+    height: 200px;
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border: 1px solid black;
+}
+.error-header {
+    display: flex;
+    justify-content: flex-end;
+    height: 40px;
+    padding-inline: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 90%, #ffffff80 100%);
+}
+.error-header .error-cta{
+    background-color: transparent;
+    border: none;
+}
+.error-header .error-cta img{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.error-wrapper .error-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+}
+.error-wrapper .error-body .message {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.error-wrapper .error-body .error-ok button {
+    width: 80px;
+    padding: 5px 10px;
+    border: 2px solid black;
+}
+.error-wrapper .error-body .message img {
+    width: calc(var(--iconWidth) / 2);
+    display: block;
+}
+
+.error-wrapper .error-body .message p {
+    text-align: center;
+}
 @keyframes fadeOut {
     0% {
         opacity: 1;

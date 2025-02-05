@@ -19,6 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const runingAppsInDock = document.querySelector('.running-apps')   // started programs in dock
     const startMenu = document.querySelector('.start-menu')  // start menu
     const startBtn = document.querySelector('.start') // start menu button
+    const errorMsg = document.querySelector('.error-wrapper') //error message box
+    const errorClose = document.querySelector('.error-header .error-cta') // error close buttom
+    const errorOk = document.querySelector('.error-ok button') // error ok button
+    const cdRom = document.querySelector('.icon.optical-drive')
+
+    cdRom.addEventListener('dblclick', showError)
+    errorClose.addEventListener('click', closeError)
+    errorOk.addEventListener('click', closeError)
+    function showError () {
+        errorMsg.classList.add('active')
+    }
+ 
+    function closeError() {
+        errorMsg.classList.remove('active')
+    }
 
     let selectionBox = null;
     let startX, startY;
