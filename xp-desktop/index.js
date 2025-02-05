@@ -295,12 +295,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // each icon double click opens explorer
     icons.forEach((icon) => {
         icon.addEventListener('dblclick', (e) => {
+            const explorerLogo = explorerWindow.querySelector('.explorer-header .logo img')
+            const explorerTitle = explorerWindow.querySelector('.explorer-header .logo h5')
+            const targetText = e.target.querySelector('h4').textContent
+            const targetImg = e.target.querySelector('img').src
+            explorerLogo.src = targetImg
+            explorerTitle.textContent = targetText
+            const runnigApp = ` <div class="running-app-wrapper">
+                <img src=${targetImg} alt="">
+                <h4>${targetText}</h4>
+            </div>`
+            runingAppsInDock.innerHTML = runnigApp
             if(explorerWindow.classList.contains('hide')) {
-                const runnigApp = ` <div class="running-app-wrapper">
-                    <img src="assets/img/my-computer.png" alt="">
-                    <h4>My Computer</h4>
-                </div>`
-                runingAppsInDock.innerHTML = runnigApp
                 document.querySelector('.running-app-wrapper').addEventListener('click', () => {
                     explorerWindow.classList.toggle('minimized')
                 })
