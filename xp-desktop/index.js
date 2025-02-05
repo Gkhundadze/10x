@@ -24,15 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorOk = document.querySelector('.error-ok button') // error ok button
     const cdRom = document.querySelector('.icon.optical-drive')
 
-    cdRom.addEventListener('dblclick', showError)
-    errorClose.addEventListener('click', closeError)
-    errorOk.addEventListener('click', closeError)
+
+
+    cdRom.addEventListener('dblclick', showError) // listens CD/ROM double click
+    errorClose.addEventListener('click', closeError) // listens error close icon  click
+    errorOk.addEventListener('click', closeError) // listens error ok button click
+    
     function showError () {
-        errorMsg.classList.add('active')
+        errorMsg.classList.add('active') // adds active class to show error
     }
  
     function closeError() {
-        errorMsg.classList.remove('active')
+        errorMsg.classList.remove('active') // removes active class to hide error
     }
 
     let selectionBox = null;
@@ -133,7 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    refreshBtn.addEventListener('click', () => {
+    refreshBtn.addEventListener('click', (e) => {
+        e.stopImmediatePropagation()
+        contextMenu.style.display = "none";
         const sound = new Audio("assets/audio/start.mp3");
         sound.play().catch((error) => console.error("Playback error:", error));
         icons.forEach((icon) => {
@@ -155,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hide Start Menu when clicking outside
     document.addEventListener("click", (e) => {
+        contextMenu.style.display = "none";
         if (!startMenu.contains(e.target) && !startBtn.contains(e.target)) {
             startMenu.classList.add("hide");
         }

@@ -269,11 +269,11 @@ body {
     position: absolute;
     left: 0;
     bottom: calc(var(--dockHeight) + 1px);
-    width: 400px;
+    width: 500px;
     height: 600px;
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 80px 1fr 1fr 1fr 1fr 80px; 
+    grid-template-rows: 70px 1fr 1fr 1fr 1fr 60px; 
     gap: 0px 0px; 
     grid-template-areas: 
       "head head"
@@ -290,6 +290,29 @@ body {
 .start-menu .head { 
     background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 80%, #ffffff80 100%);
     grid-area: head; 
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.start-menu .head .xp-user-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.start-menu .head .xp-user-wrapper img{
+    width: 60px;
+    height: 60px;
+    display: block;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 5px;
+}
+.start-menu .head .xp-user-wrapper span{
+    color: white;
+    font-size: 22px;
+    text-transform: capitalize;
 }
 .start-menu .content { 
     grid-area: content; 
@@ -347,8 +370,32 @@ body {
 }
 .start-menu .footer { 
     background: linear-gradient(0deg, var(--xp-blue-dark) 40%, var(--xp-blue) 80%, #ffffff80 100%);
-
     grid-area: body; 
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+.start-menu .footer .pc-cta-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.start-menu .footer .pc-cta-wrapper button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+}
+.start-menu .footer .pc-cta-wrapper button img {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+.start-menu .footer .pc-cta-wrapper button span {
+    font-size: 16px;
+    color: #fff;
+    text-transform: capitalize;
 }
 .dock .start h5{
     color: #fff;
