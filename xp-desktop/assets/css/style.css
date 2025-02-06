@@ -26,6 +26,7 @@ a {
     --sidebar-inner-bg: #d7def8;
     --sidebar-item-color: #2e549e;
     --start-menu-rightSide: #d3e5fb;
+    --explorer-options-block: #efeedc;
 
     /* z indexes */
     --loading: 20000;
@@ -114,10 +115,11 @@ body {
     transform: translate(-50%, -50%);
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 40px 80px 1fr 1fr 1fr 1fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
         "header header header header header header header"
+        "option option option option option option option"
         "aside aside content content content content content"
         "aside aside content content content content content"
         "aside aside content content content content content"
@@ -128,6 +130,30 @@ body {
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     border: 2px solid var(--xp-blue);
     z-index: var(--explorer);
+}
+.options {
+    grid-area: option;
+    display: flex;
+    flex-direction: column;
+    background-color: var( --explorer-options-block);
+}
+.options .option:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.options .option:first-child .folder-options-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.options .option:nth-child(2) {
+}
+.options .option:last-child {
+}
+.options .option:first-child .win-logo-wrapper img {
+    width: 30px;
+    height: 30px;
 }
 .explorer.hide {
     display: none;
