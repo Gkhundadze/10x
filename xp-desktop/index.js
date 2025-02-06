@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const explorerHeader = document.querySelector(".explorer-header"); // explorer header
     const welcomeAudio = new Audio("assets/audio/xp-startup.mp3"); // Xp welcome screen sound
     const openFolder = new Audio("assets/audio/start.mp3"); // folder open & redirect sound
+    const errorSound = new Audio("assets/audio/error.mp3"); // error sound
     const minimizeFolder = new Audio("assets/audio/minimize.mp3"); //minimize sound
     const welcomeScreen = document.querySelector('.welcome-screen'); // Xp welcome screen
     const loadingScreen = document.querySelector('.loading-xp') // Loading layer
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     errorOk.addEventListener('click', closeError) // listens error ok button click
     
     function showError () {
+        errorSound.play().catch((error) => console.error("Playback error:", error));
         errorMsg.classList.add('active') // adds active class to show error
     }
  
