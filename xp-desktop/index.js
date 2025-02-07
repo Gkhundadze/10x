@@ -144,10 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const sound = new Audio("assets/audio/start.mp3");
         sound.play().catch((error) => console.error("Playback error:", error));
         icons.forEach((icon) => {
-            icon.style.animation = 'refresh .1s ease-in-out forwards'
-            setTimeout(() => {
-                icon.style.animation = ''
-            }, 500)
+            if(icon.parentElement.classList.contains('desktop')) {
+                icon.style.animation = 'refresh .1s ease-in-out forwards'
+                setTimeout(() => {
+                    icon.style.animation = ''
+                }, 500)
+            }
         })
     })
 

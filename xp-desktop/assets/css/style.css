@@ -107,7 +107,7 @@ body {
 }
 .explorer {
     width: 60vw;
-    height: 60vh;
+    height: 70vh;
     background-color: #fff;
     position: absolute;
     top: 50%;
@@ -115,7 +115,7 @@ body {
     transform: translate(-50%, -50%);
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 40px 80px 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 40px 100px 1fr 1fr 1fr 1fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
         "header header header header header header header"
@@ -136,6 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var( --explorer-options-block);
+    padding-left: 10px;
 }
 .options .option:first-child {
     display: flex;
@@ -147,14 +148,102 @@ body {
     align-items: center;
     gap: 10px;
 }
+.options .option:first-child .folder-options-wrapper li {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.options .option:first-child .folder-options-wrapper li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 .options .option:nth-child(2) {
+    display: flex;
+    padding-block: 8px;
 }
-.options .option:last-child {
+.folder-navigation {
+    display: flex;
 }
-.options .option:first-child .win-logo-wrapper img {
+.folder-navigation .back-forward {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.folder-navigation .back-forward .back img,
+.folder-navigation .back-forward .up img,
+.folder-navigation .back-forward .home img,
+.folder-navigation .back-forward .forward img{
     width: 30px;
     height: 30px;
 }
+
+.folder-navigation .back-forward .back{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.folder-navigation .back-forward .back h6 {
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.folder-navigation .back-forward .forward{
+    display: flex;
+    align-items: center;
+}
+
+.options .option:first-child .win-logo-wrapper {
+    background-color: #fff;
+    padding: 1px 10px;
+}
+.options .option:first-child .win-logo-wrapper img {
+    width: 20px;
+    height: 20px;
+}
+.options .option:last-child {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 10px;
+}
+.options .option:last-child .address-wrapper{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 5px;
+}
+.options .option:last-child .address-wrapper input {
+    width: 100%;
+    border: none;
+    line-height: 20px;
+}
+.options .option:last-child .address-wrapper input:focus {
+    outline: none;
+}
+.options .option:last-child .address-wrapper label {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.options .option:last-child .go{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.options .option:last-child .go img{
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.options .option:last-child .go h6{
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+
+
+
+
+/* explorer */
 .explorer.hide {
     display: none;
 }
@@ -187,7 +276,7 @@ body {
 .explorer.my-computer .icon img {
     width: var(--iconWidth);
 }
-.explorer header {
+.explorer .explorer-header {
     grid-area: header;
     background: linear-gradient(180deg, var(--xp-blue-dark) 40%, var(--xp-blue) 90%, #ffffff80 100%);
     display: flex;
@@ -195,7 +284,7 @@ body {
     align-items: center;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    padding-inline: 10px;
+    padding-inline: 5px;
     cursor: grab;
 }
 .explorer header .logo {
