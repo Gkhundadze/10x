@@ -1,0 +1,60 @@
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+
+
+/* flex */
+.d-flex {
+    display: flex;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.align-center {
+    align-items: center;
+}
+
+/* texts */
+.capitalize {
+    text-transform: capitalize;
+}
+
+
+/* margins */
+.m-r-auto {
+    margin-right: auto;
+}
+.m-l-auto {
+    margin-left: auto;
+}
+
+/* paddings */
+
+
+
+
+/* inherit */
+.inherit-color {
+    color: inherit;
+}
+
+/* pointer */
+.pointer {
+    cursor: pointer;
+}
+
+
+/* overflows */
+.overflow-x-h {
+    overflow-x: hidden;
+}

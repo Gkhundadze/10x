@@ -1,19 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/utility.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/app.js" defer></script>
 </head>
+
 <body>
-    <section>
+    <header class="overflow-x-h">
+        <canvas class="absolute" id="gradient-canvas"></canvas>
         <div class="container">
-            <div class="wrapper">
-                <div class="left">left</div>
-                <div class="right">right</div>
-            </div>
+                <!-- header navigation start -->
+                <div class="header-nav-wrapper d-flex justify-between align-center">
+                    <div class="logo pointer capitalize">
+                        stripe
+                    </div>
+                    <nav class="main-nav m-r-auto">
+                        <ul class="d-flex">
+                            <li>
+                                <a class="capitalize inherit-color d-flex align-center" href="#">
+                                    <span>products</span>
+                                    <span class="arrow">
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--left">
+                                            <path
+                                                d="M4.381 5.619 5 6.237 6.237 5l-.618-.619L4.38 5.62Zm-4-4 4 4L5.62 4.38l-4-4L.38 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--right">
+                                            <path
+                                                d="M2.619 5.619 2 6.237.763 5l.618-.619L2.62 5.62Zm4-4-4 4L1.38 4.38l4-4L6.62 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="capitalize inherit-color d-flex align-center" href="#">
+                                    <span>solutions</span>
+                                    <span class="arrow">
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--left">
+                                            <path
+                                                d="M4.381 5.619 5 6.237 6.237 5l-.618-.619L4.38 5.62Zm-4-4 4 4L5.62 4.38l-4-4L.38 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--right">
+                                            <path
+                                                d="M2.619 5.619 2 6.237.763 5l.618-.619L2.62 5.62Zm4-4-4 4L1.38 4.38l4-4L6.62 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="capitalize inherit-color d-flex align-center" href="#">
+                                    <span>developers</span>
+                                    <span class="arrow">
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--left">
+                                            <path
+                                                d="M4.381 5.619 5 6.237 6.237 5l-.618-.619L4.38 5.62Zm-4-4 4 4L5.62 4.38l-4-4L.38 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--right">
+                                            <path
+                                                d="M2.619 5.619 2 6.237.763 5l.618-.619L2.62 5.62Zm4-4-4 4L1.38 4.38l4-4L6.62 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="capitalize inherit-color d-flex align-center" href="#">
+                                    <span>resources</span>
+                                    <span class="arrow">
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--left">
+                                            <path
+                                                d="M4.381 5.619 5 6.237 6.237 5l-.618-.619L4.38 5.62Zm-4-4 4 4L5.62 4.38l-4-4L.38 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                        <svg width="8" height="8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="SiteHeaderNavItem__linkCaret SiteHeaderNavItem__linkCaret--right">
+                                            <path
+                                                d="M2.619 5.619 2 6.237.763 5l.618-.619L2.62 5.62Zm4-4-4 4L1.38 4.38l4-4L6.62 1.62Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="capitalize inherit-color d-flex align-center" href="#">
+                                        pricing
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="cta-wrapper d-flex">
+                        <button class="login capitalize inherit-color pointer d-flex align-center">
+                            login
+                            <svg class="HoverArrow" width="10" height="10" viewBox="0 0 10 10">
+                                <g fill-rule="evenodd">
+                                    <path class="HoverArrow__linePath" d="M0 5h7"></path>
+                                    <path class="HoverArrow__tipPath" d="M1 1l4 4-4 4"></path>
+                                </g>
+                            </svg>
+                        </button>
+                        <button class="contact-sales capitalize inherit-color pointer d-flex align-center">
+                            contact sales
+                            <svg class="HoverArrow" width="10" height="10" viewBox="0 0 10 10">
+                                <g fill-rule="evenodd">
+                                    <path class="HoverArrow__linePath" d="M0 5h7"></path>
+                                    <path class="HoverArrow__tipPath" d="M1 1l4 4-4 4"></path>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="burger-icon pointer">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                <!-- header navigation end -->
+
+                <!-- hero section start -->
+            <section class="hero">
+                <div class="left-side">
+                    <h1>
+                        Financial infrastructure to grow your revenue
+                    </h1>
+                </div>
+                <div class="right-side relative">
+                    <div class="mobile"></div>
+                    <div class="chart"></div>
+                </div>
+            </section>
         </div>
-    </section>
+    </header>
+
 </body>
+
 </html>
