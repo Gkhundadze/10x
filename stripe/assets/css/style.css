@@ -10,6 +10,10 @@
     /* colors */
     --c-white: #fff;
     --c-black: #000;
+    --c-mobile-nav-items: #3f4b66;
+    --c-accent: #635bff;
+    /* z indexes */
+    --mobile-nav: 1000;
 }
 
 
@@ -151,18 +155,48 @@ html {
             display: none;
         }
     }
+    & .mobile-nav-menu {
+        inset: 0;
+        background-color: var(--c-white);
+        z-index: var(--mobile-nav);
+        color: var(--c-mobile-nav-items);
+        opacity: 0;
+        visibility: hidden;
+        transition-duration: .3s;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        & .mobile-nav-header {
+            padding: 16px;
+            & a {
+                color: var(--c-accent);
+                font-weight: bold;
+                font-size: 24px;
+            }
+            & .close {
+
+            }
+        }
+        & .mobile-nav-body {
+            flex-grow: 1;
+            padding-inline: 16px;
+        }
+        & .mobile-nav-footer {
+            height: 64px;
+        }
+    }
     & .burger-icon {
         display: none;
-        width: 48px;
-        height: 35px;
-        background-color: rgba(255, 255, 255, .5);
+        background-color: rgba(255, 255, 255, .2);
         border-radius: 16px;
         flex-direction: column;
-        justify-content: space-around;
-        padding: 6px 16px;
+        justify-content: center;
+        gap: 2px;
+        padding: 11px 16px;
         transition-duration: .3s;
         & .line {
-            width: 100%;
+            width: 16px;
             height: 2px;
             background-color: var(--c-white);
         }
