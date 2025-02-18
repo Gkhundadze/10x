@@ -11,10 +11,16 @@
 }
 
 
-/* flex */
+/* display */
+.d-inline-block {
+    display: inline-block;
+}
 .d-flex {
     display: flex;
 }
+
+
+/* flex */
 .justify-center {
     justify-content: center;
 }
