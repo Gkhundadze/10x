@@ -11,3 +11,32 @@ burgerIcon.addEventListener('click', () => {
 navCloseButton.addEventListener('click', () => {
     mobileNavMenu.classList.remove('active')
 })
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".modular-solutions, .payments");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    let sectionName = entry.target.dataset.section;
+                    console.log(`Currently viewing: ${sectionName}`, );
+
+                    // Update z-index of the active right-side div
+                    entry.target.querySelector(".right-side").style.zIndex = "1";
+                } else {
+                    entry.target.querySelector(".right-side").style.zIndex = "-2";
+                }
+            });
+        },
+        {
+            root: null, // Viewport
+            threshold: 0.6, // Trigger when 60% is visible
+        }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+});
+
