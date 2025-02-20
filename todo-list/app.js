@@ -1,87 +1,120 @@
-const baseUrl = 'https://us-central1-js04-b4877.cloudfunctions.net/'
+const baseUrl = 'https://us-central1-js04-b4877.cloudfunctions.net/';
+const tasksWrapper = document.querySelector('#tasks-wrapper');
+const taskInput = document.querySelector('#task-input'); // Input field
+const taskSubmit = document.querySelector('#task-submit'); // Submit button
 
-const tasksWrapper = document.querySelector('#tasks-wrapper')
-
-
-
-
-async function checkTask(endpoint,taskId) {
+// Reusable Fetch Function
+async function fetchData(endpoint, method = 'GET', body = null) {
   try {
-    const response = await fetch(baseUrl + endpoint + taskId, {method: 'POST'});
+    const options = { method };
+    if (body) options.body = JSON.stringify(body);
+    if (method !== 'GET') options.headers = { 'Content-Type': 'application/json' };
+
+    const response = await fetch(baseUrl + endpoint, options);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
+    return response.json();
   } catch (error) {
-    console.error('Error fetching posts:', error);
+    console.error('Error:', error);
+    throw error;
   }
 }
 
+async function createTask(endpoint, taskText) {
+  return fetchData(endpoint, 'POST', { text: taskText });
+}
 
+async function checkTask(endpoint, taskId) {
+  return fetchData(endpoint + taskId, 'POST');
+}
 
-async function deleteTask(endpoint,taskId) {
-  try {
-    const response = await fetch(baseUrl + endpoint + taskId, {method: 'DELETE'});
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-  }
+async function deleteTask(endpoint, taskId) {
+  return fetchData(endpoint + taskId, 'DELETE');
 }
 
 async function getAllPosts(endpoint) {
-    try {
-      const response = await fetch(baseUrl + endpoint);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      renderTasks(data.data, tasksWrapper)
-      
-      console.log(data.data);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
+  try {
+    const data = await fetchData(endpoint);
+    // Sort tasks by create_time (newest first)
+    const sortedTasks = data.data.sort((a, b) => new Date(b.create_time) - new Date(a.create_time));
+    renderTasks(sortedTasks, tasksWrapper);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+  }
+}
+
+// Function to render tasks
+function renderTasks(data, wrapper) {
+  wrapper.innerHTML = ''; // Clear previous tasks before rendering
+  data.forEach(renderTask);
+}
+
+// Function to create a task element
+function renderTask(element) {
+  const task = document.createElement('div');
+  task.setAttribute('task-id', element.id);
+  task.classList.add('task-item');
+
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+  checkbox.checked = element.completed;
+
+  const title = document.createElement('h2');
+  title.textContent = element.text;
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.setAttribute('type', 'button');
+  deleteBtn.textContent = 'delete';
+
+  task.append(deleteBtn, title, checkbox);
+  tasksWrapper.append(task); // Appends in sorted order from renderTasks()
+}
+
+// Event Listener for Delete and Checkbox Actions
+tasksWrapper.addEventListener('click', function (event) {
+  const task = event.target.parentElement;
+  const taskId = task.getAttribute('task-id');
+
+  // Delete Task
+  if (event.target.tagName === 'BUTTON') {
+    task.classList.add('removing'); // Add animation class
+    setTimeout(() => {
+        deleteTask('tasks/', taskId).then(() => task.remove());
+    }, 400); // Wait for animation to finish before removing
+}
+
+  // Toggle Task Completion
+  else if (event.target.tagName === 'INPUT') {
+    const checkbox = event.target;
+
+    if (checkbox.checked) {
+      checkTask('tasks/check/', taskId).catch(() => (checkbox.checked = false));
+    } else {
+      checkTask('tasks/uncheck/', taskId).catch(() => (checkbox.checked = true));
     }
   }
-
-  function renderTasks(data, wrapper) {
-    data.forEach(element => {
-      const task = document.createElement('div')
-      task.setAttribute('task-id', element.id)
-      task.classList.add('task-item')
-      const checkbox = document.createElement('input')
-      checkbox.setAttribute('type', 'checkbox')
-      checkbox.checked = element.completed
-      const title = document.createElement('h2')
-      title.textContent = element.text
-      const deleteBtn = document.createElement('button')
-      deleteBtn.setAttribute('type', 'button')
-      deleteBtn.textContent = 'delete'
-      task.append(deleteBtn, title, checkbox)
-      wrapper.append(task)
-    });
+});
+// listening on keypress "enter"
+taskInput.addEventListener('keydown', async function (event) {
+  if (event.key === 'Enter') { 
+      event.preventDefault(); // Prevents accidental form submission (if inside a form)
+      taskSubmit.click(); // Triggers the existing submit button click event
   }
+});
+// Create Task Event Listener
+taskSubmit.addEventListener('click', async function () {
+  const taskText = taskInput.value.trim();
+  if (taskText === '') return;
 
-  getAllPosts('tasks')
+  try {
+    const newTask = await createTask('tasks/create', taskText);
+    getAllPosts('tasks'); // Re-fetch and re-sort tasks after adding a new one
+    taskInput.value = ''; // Clear input field
+  } catch (error) {
+    console.error('Failed to create task:', error);
+  }
+});
 
-
-
-  
-  tasksWrapper.addEventListener('click', function(event) {
-    // when user clicks on delete task button to delete it
-    if (event.target && event.target.tagName === 'BUTTON') {
-      console.log(event.target)
-      const taskId = event.target.parentElement.getAttribute('task-id');
-      deleteTask('tasks/', taskId);
-    }
-    // when user clicks on checkbox to check or uncheck task
-    else if(event.target && event.target.tagName === 'INPUT') {
-      console.log(event.target.checked)
-      const taskId = event.target.parentElement.getAttribute('task-id');
-      if(event.target.checked) {
-        checkTask('tasks/check/', taskId)
-      }else {
-        checkTask('tasks/uncheck/', taskId)
-      }
-    }
-  });
+// Fetch and Display Tasks on Load
+getAllPosts('tasks');
