@@ -15,7 +15,7 @@ navCloseButton.addEventListener('click', () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".modular-solutions, .payments");
+    const sections = document.querySelectorAll(".modular-solutions, .payments, .billing, .connect, .issuing");
 
     const observer = new IntersectionObserver(
         (entries) => {
@@ -28,12 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     entry.target.querySelector(".right-side").style.zIndex = "1";
                 } else {
                     entry.target.querySelector(".right-side").style.zIndex = "-2";
+
                 }
             });
         },
         {
             root: null, // Viewport
-            threshold: 0.6, // Trigger when 60% is visible
+            threshold: 0.7, // Trigger when 70% is visible
         }
     );
 

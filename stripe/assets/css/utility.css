@@ -1,3 +1,20 @@
+
+
+
+.vertical-lines {
+    /* need to adjust  */
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0%,
+        transparent calc(25% - 0.5px),
+        black calc(25% - 0.5px) calc(25% + 0.5px),
+        transparent calc(25% + 0.5px) calc(50% - 0.5px),
+        black calc(50% - 0.5px) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px) calc(75% - 0.5px),
+        black calc(75% - 0.5px) calc(75% + 0.5px),
+        transparent calc(75% + 0.5px) 100%
+    );
+  }
 .container {
     max-width: 1080px;
     width: 95%;

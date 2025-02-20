@@ -8,6 +8,7 @@
     src: url(../fonts/HelveticaNeueMedium.ttf);
 }
 
+
 :root {
     /* colors */
     --c-white: #fff;
@@ -376,7 +377,11 @@ button {
 .animated-sections-wrapper {
     background-color: #f6f9fc;
 }
-.modular-solutions, .payments {
+.modular-solutions, 
+.payments, 
+.billing, 
+.connect,
+.issuing {
     padding-block: 128px;
     & .left-side{
         padding-inline: 16px 64px;
@@ -404,6 +409,8 @@ button {
         width: 500px;
         height: 600px;
         background-color: blue;
+        color: white;
+        font-size: 40px;
         position: fixed;
         right: 40px;
         top: 30px;
