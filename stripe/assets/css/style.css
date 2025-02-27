@@ -303,7 +303,6 @@ html {
     }
 
     & .right-side {
-
         & .mobile {
             margin-top: 60px;
             width: 270px;
@@ -413,8 +412,9 @@ button {
         font-size: 40px;
         position: fixed;
         right: 40px;
-        top: 30px;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: -2;
-        transition: z-index 0.3s ease-in-out; /* Smooth transition */
+        transition: 0.3s ease-in-out; /* Smooth transition */
     }
 }

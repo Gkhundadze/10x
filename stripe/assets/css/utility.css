@@ -1,5 +1,9 @@
 
-
+.hidden {
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+}
 
 .vertical-lines {
     /* need to adjust  */
